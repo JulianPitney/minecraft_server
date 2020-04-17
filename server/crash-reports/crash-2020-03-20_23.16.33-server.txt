@@ -1,0 +1,93 @@
+---- Minecraft Crash Report ----
+// Don't do that.
+
+Time: 20/03/20 11:16 PM
+Description: Exception generating new chunk
+
+java.lang.NullPointerException: Exception generating new chunk
+	at caa.a(SourceFile:221)
+	at cae.h(SourceFile:62)
+	at cae$d.doWork(SourceFile:258)
+	at cae.a(SourceFile:214)
+	at wp.a(SourceFile:549)
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38)
+	at wp.a(SourceFile:543)
+	at java.util.concurrent.CompletableFuture.uniCompose(Unknown Source)
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(Unknown Source)
+	at java.util.concurrent.CompletableFuture$Completion.run(Unknown Source)
+	at wr.b(SourceFile:58)
+	at aiv.e(SourceFile:83)
+	at aiv.a(SourceFile:123)
+	at aiv.run(SourceFile:91)
+	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(Unknown Source)
+	at java.util.concurrent.ForkJoinTask.doExec(Unknown Source)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(Unknown Source)
+	at java.util.concurrent.ForkJoinPool.runWorker(Unknown Source)
+	at java.util.concurrent.ForkJoinWorkerThread.run(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at caa.a(SourceFile:221)
+	at cae.h(SourceFile:62)
+	at cae$d.doWork(SourceFile:258)
+	at cae.a(SourceFile:214)
+
+-- Chunk to be generated --
+Details:
+	Location: -23,23
+	Position hash: 103079215081
+	Generator: cca@426b2085
+Stacktrace:
+	at wp.a(SourceFile:549)
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38)
+	at wp.a(SourceFile:543)
+	at java.util.concurrent.CompletableFuture.uniCompose(Unknown Source)
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(Unknown Source)
+	at java.util.concurrent.CompletableFuture$Completion.run(Unknown Source)
+	at wr.b(SourceFile:58)
+	at aiv.e(SourceFile:83)
+	at aiv.a(SourceFile:123)
+	at aiv.run(SourceFile:91)
+
+-- Affected level --
+Details:
+	All players: 1 total; [xe['julian183'/67, l='Our_World', x=-190.14, y=135.00, z=179.64]]
+	Chunk stats: ServerChunkCache: 2665
+	Level dimension: minecraft:overworld
+	Level name: Our_World
+	Level seed: -2835623988466796806
+	Level generator: ID 00 - default, ver 1. Features enabled: true
+	Level generator options: {rivers:{value:{tertiaryRivers:{value:{fade:{value:0.75f},maxBankHeight:{value:4},minBankHeight:{value:1},bedDepth:{value:3},bankWidth:{value:10},bedWidth:{value:4}}},riverFrequency:{value:1.0f},secondaryRiver:{value:{fade:{value:0.75f},maxBankHeight:{value:6},minBankHeight:{value:1},bedDepth:{value:4},bankWidth:{value:15},bedWidth:{value:5}}},primaryRivers:{value:{fade:{value:0.75f},maxBankHeight:{value:8},minBankHeight:{value:2},bedDepth:{value:5},bankWidth:{value:25},bedWidth:{value:8}}}}},features:{value:{strataDecorator:{value:"true"},naturalSnowDecorator:{value:"true"},smoothLayerDecorator:{value:"true"},erosionDecorator:{value:"true"},customBiomeFeatures:{value:"true"}}},structures:{value:{villageDistance:{value:2},strongholdSpread:{value:3},oceanMonumentSeparation:{value:3},biomeStructureDistance:{value:4},mansionDistance:{value:3},oceanMonumentSpacing:{value:3},strongholdDistance:{value:3}}},generator:{value:{world:{value:{seaLevel:{value:81},worldHeight:{value:256},oceanSize:{value:0.244f}}},biome:{value:{biomeWarpStrength:{value:70},biomeSize:{value:200},biomeWarpScale:{value:35}}},land:{value:{mountainScale:{value:950},continentScale:{value:4038},regionSize:{value:1000}}},biomeEdgeNoise:{value:{octaves:{value:2},strength:{value:24},scale:{value:8},type:{value:"PERLIN"},lacunarity:{value:2.5f},gain:{value:0.5f}}}}},filters:{value:{erosion:{value:{erosionRate:{value:0.5f},depositeRate:{value:0.2f},iterations:{value:12000}}},smoothing:{value:{smoothingRadius:{value:1.75f},smoothingRate:{value:0.85f},iterations:{value:1}}}}},version:{value:1},terrain:{value:{badlands:{value:{baseScale:{value:1.0f},verticalScale:{value:1.0f},horizontalScale:{value:1.0f},weight:{value:2.0f}}},mountains:{value:{baseScale:{value:1.0f},verticalScale:{value:1.0f},horizontalScale:{value:1.0f},weight:{value:0.5f}}},globalVerticalScale:{value:0.985f},dales:{value:{baseScale:{value:1.0f},verticalScale:{value:1.0f},horizontalScale:{value:1.0f},weight:{value:2.0f}}},globalHorizontalScale:{value:1.0f},plains:{value:{baseScale:{value:1.0f},verticalScale:{value:1.0f},horizontalScale:{value:1.0f},weight:{value:5.0f}}},hills:{value:{baseScale:{value:1.0f},verticalScale:{value:1.0f},horizontalScale:{value:1.0f},weight:{value:2.0f}}},plateau:{value:{baseScale:{value:1.0f},verticalScale:{value:1.0f},horizontalScale:{value:1.0f},weight:{value:2.0f}}},torridonian:{value:{baseScale:{value:1.0f},verticalScale:{value:1.0f},horizontalScale:{value:1.0f},weight:{value:0.5f}}},volcano:{value:{baseScale:{value:1.0f},verticalScale:{value:1.0f},horizontalScale:{value:1.0f},weight:{value:1.0f}}},steppe:{value:{baseScale:{value:1.0f},verticalScale:{value:1.0f},horizontalScale:{value:1.0f},weight:{value:5.0f}}}}}}
+	Level spawn location: World: (-160,121,-32), Chunk: (at 0,7,0 in -10,-2; contains blocks -160,0,-32 to -145,255,-17), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,0,-512 to -1,255,-1)
+	Level time: 3695 game time, 3695 day time
+	Known server brands: forge, vanilla
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+	Level weather: Rain time: 157471 (now: false), thunder time: 91533 (now: false)
+	Level game mode: Game mode: survival (ID 0). Hardcore: false. Cheats: false
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.b(SourceFile:857)
+	at wd.b(SourceFile:347)
+	at net.minecraft.server.MinecraftServer.a(SourceFile:793)
+	at net.minecraft.server.MinecraftServer.run(SourceFile:655)
+	at java.lang.Thread.run(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.15.2
+	Minecraft Version ID: 1.15.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_241, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 19889677512 bytes (18968 MB) / 20643840000 bytes (19687 MB) up to 20643840000 bytes (19687 MB)
+	CPUs: 8
+	JVM Flags: 2 total; -Xms16G -Xmx20G
+	Player Count: 1 / 20; [xe['julian183'/67, l='Our_World', x=-190.14, y=135.00, z=179.64]]
+	Data Packs: vanilla
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)
